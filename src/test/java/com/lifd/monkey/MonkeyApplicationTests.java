@@ -6,14 +6,12 @@ import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.ai.ollama.OllamaChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @SpringBootTest
-//@ContextConfiguration(classes = {OllamaChatClient.class})
 class MonkeyApplicationTests {
 
     @Autowired
@@ -27,6 +25,9 @@ class MonkeyApplicationTests {
         System.out.println(chatClient.call(message));
     }
 
+    /**
+     * 流式访问
+     */
     @Test
     void streamChat() throws ExecutionException, InterruptedException {
         // 构建一个异步函数，实现手动关闭测试函数
