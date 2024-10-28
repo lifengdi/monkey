@@ -25,6 +25,14 @@ class MonkeyApplicationTests {
         System.out.println(chatClient.call(message));
     }
 
+    @Test
+    void testChat() {
+        String message = """
+                什么是三高架构？
+                """;
+        System.out.println(chatClient.call(message));
+    }
+
     /**
      * 流式访问
      */
