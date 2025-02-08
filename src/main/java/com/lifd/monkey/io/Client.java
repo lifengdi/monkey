@@ -19,8 +19,7 @@ public class Client {
 
         //设置为非阻塞
         dChannel.configureBlocking(false);
-        ByteBuffer buffer =
-                ByteBuffer.allocate(1024);
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
         Scanner scanner = new Scanner(System.in);
         System.out.println("UDP 客户端启动成功！");
         System.out.println("请输入发送内容:");
@@ -30,8 +29,7 @@ public class Client {
             buffer.flip();
 
             //通过 DatagramChannel 数据报通道发送数据
-            dChannel.send(buffer,
-                    new InetSocketAddress("127.0.0.1", 18899));
+            dChannel.send(buffer, new InetSocketAddress("127.0.0.1", 18899));
             buffer.clear();
         }
 

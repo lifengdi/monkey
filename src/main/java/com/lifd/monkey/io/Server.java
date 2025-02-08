@@ -20,8 +20,7 @@ public class Server {
         //设置为非阻塞模式
         datagramChannel.configureBlocking(false);
         //绑定监听地址
-        datagramChannel.bind(
-                new InetSocketAddress("127.0.0.1", 18899));
+        datagramChannel.bind(new InetSocketAddress("127.0.0.1", 18899));
         System.out.println("UDP 服务器启动成功！");
 
         //开启一个通道选择器
@@ -32,10 +31,8 @@ public class Server {
 
         //通过选择器，查询 IO 事件
         while (selector.select() > 0) {
-            Iterator<SelectionKey> iterator =
-                    selector.selectedKeys().iterator();
-            ByteBuffer buffer =
-                    ByteBuffer.allocate(1024);
+            Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
 
             //迭代 IO 事件
             while (iterator.hasNext()) {
@@ -45,8 +42,7 @@ public class Server {
                 if (selectionKey.isReadable()) {
 
                     //读取 DatagramChannel 数据报通道的数据
-                    SocketAddress client =
-                            datagramChannel.receive(buffer);
+                    SocketAddress client = datagramChannel.receive(buffer);
                     buffer.flip();
                     System.out.println(new String(buffer.array(), 0, buffer.limit()));
                     buffer.clear();
