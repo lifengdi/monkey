@@ -18,6 +18,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * Reactor 模型IO事件处理流程：
+ * channel -> selector -> reactor -> handler
+ *
  * @author lifengdi
  * @createTime 2025/2/8 16:23
  */
@@ -62,6 +65,9 @@ public class MultiThreadEchoServerReactor {
         new Thread(workReactors[0]).start();
         new Thread(workReactors[1]).start();
         log.info("服务器启动成功");
+        /*
+         * bossReactor -> workReactor -> handler
+         */
     }
 
     //反应器
