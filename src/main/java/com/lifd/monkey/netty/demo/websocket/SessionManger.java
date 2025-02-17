@@ -36,7 +36,7 @@ public class SessionManger {
         }
 
         public LocalSession bind() {
-            log.info(" LocalSession 绑定会话 " + channel.remoteAddress());
+            log.info(" LocalSession 绑定会话 {}", channel.remoteAddress());
             channel.attr(LocalSession.SESSION_KEY).set(this);
             return this;
         }
