@@ -28,7 +28,7 @@ public class EchoClient {
         SocketChannel socketChannel = SocketChannel.open(address);
         // 2.切换成非阻塞模式
         socketChannel.configureBlocking(false);
-        //不断地自旋、等待连接完成，或者做一些其他的事情
+        // 不断地自旋、等待连接完成，或者做一些其他的事情
         while (!socketChannel.finishConnect()) {
         }
         log.info("客户端连接成功");
